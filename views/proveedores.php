@@ -259,6 +259,7 @@ include 'navbar.php';
 include 'scripts.php';
 ?>
 <script src="../js/proveedores.js"></script>
+<script src="../js/chat-bot.js"></script>
 <script src="../charts/proveedores/proveedoresEstado.js"></script>
 <script src="../charts/proveedores/clasificacionProve.js"></script>
 

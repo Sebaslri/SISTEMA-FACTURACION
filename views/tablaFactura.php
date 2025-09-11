@@ -156,6 +156,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 <script src="../charts/facturas/facturasMes.js"></script>
 <script src="../charts/dashboard/ventasSemana.js"></script>
+<script src="../js/chat-bot.js"></script>
+
 
 
 </body>

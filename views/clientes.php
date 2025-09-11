@@ -347,6 +347,7 @@ include 'scripts.php';
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="../js/clientes.js"></script>
+<script src="../js/chat-bot.js"></script>
 <script src="../charts/clientes/clientesTop5Compras.js"></script>
 <script src="../charts/clientes/clientesporCiudad.js"></script>
 <script src="../charts/clientes/clientesPorMes.js"></script>

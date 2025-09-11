@@ -204,6 +204,7 @@ include 'navbar.php';
 include 'scripts.php';
 ?>
 <script src="../js/facturacion.js"></script>
+<script src="../js/chat-bot.js"></script>
 
 </body>
 

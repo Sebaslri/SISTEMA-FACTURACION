@@ -278,6 +278,7 @@ include 'navbar.php';
 include 'scripts.php';
 ?>
 <script src="../js/index.js"></script>
+<script src="../js/chat-bot.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="../charts/dashboard/ventasSemana.js"></script>

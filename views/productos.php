@@ -297,6 +297,7 @@ include 'navbar.php';
 include 'scripts.php';
 ?>
 <script src="../js/productos.js"></script>
+<script src="../js/chat-bot.js"></script>
 <script src="../charts/productos/productosPorCategoria.js"></script>
 <script src="../charts/productos/productosSemana.js"></script>
 <script src="../charts/productos/top5Productos.js"></script>

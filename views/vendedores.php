@@ -253,6 +253,7 @@ include 'navbar.php';
 include 'scripts.php';
 ?>
 <script src="../js/Vendedores.js"></script>
+<script src="../js/chat-bot.js"></script>
 <script src="../charts/vendedores/vendedoresPorMes.js" ></script>
 <script src="../charts/vendedores/vendedoresEstado.js" ></script>
 

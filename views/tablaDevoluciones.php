@@ -142,6 +142,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 </script>
 <script src="../charts/devoluciones/devolucionesMes.js"></script>
 <script src="../charts/devoluciones/productosDevueltos.js"></script>
+<script src="../js/chat-bot.js"></script>
 
 
 </body>
