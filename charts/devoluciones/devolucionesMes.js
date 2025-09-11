@@ -35,7 +35,9 @@ fetch("../charts/devoluciones/devolucionesMes.php")
                     yAxes: [{
                         ticks: {
                             beginAtZero: true,
-                            precision: 0
+                            precision: 0,
+                            stepSize: 100,      // Intervalo entre números (ajústalo según tus datos)
+                            maxTicksLimit: 5    // Máximo número de etiquetas visibles
                         },
                         gridLines: { color: "rgba(0, 0, 0, .125)" }
                     }]

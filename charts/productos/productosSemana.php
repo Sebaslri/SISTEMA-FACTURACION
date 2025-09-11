@@ -2,29 +2,43 @@
 header('Content-Type: application/json');
 include("../../controller/db.php");
 
-// Consulta productos vendidos semanales
-$sql = "SELECT 
-            DATE(fecha_detalle) as fecha, 
-            SUM(cant_detalle) as productos 
-        FROM detalle_factura_temp
-        GROUP BY DATE(fecha_detalle) 
-        ORDER BY fecha ASC 
-        LIMIT 7";
-$result = $conn->query($sql);
-
-$labels = [];
-$productos = [];
+// Zona horaria Ecuador
+date_default_timezone_set('America/Guayaquil');
 
 // Días en español
 $dias_es = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
 
+// Rango: últimos 7 días (hoy incluido)
+$fecha_inicio = date("Y-m-d", strtotime("-6 days"));
+$fecha_fin = date("Y-m-d"); // hoy
+
+// Traer productos vendidos por día dentro del rango
+$sql = "SELECT DATE(fecha_detalle) as fecha, SUM(cant_detalle) as productos
+        FROM detalle_factura_temp
+        WHERE DATE(fecha_detalle) BETWEEN '$fecha_inicio' AND '$fecha_fin'
+        GROUP BY DATE(fecha_detalle)
+        ORDER BY fecha ASC";
+$result = $conn->query($sql);
+
+// Guardar resultados en array asociativo
+$productosDB = [];
 while($row = $result->fetch_assoc()){
-    $fechaObj = new DateTime($row['fecha']);
-    $dia_semana = $dias_es[(int)$fechaObj->format("w")];
-    $labels[] = $dia_semana . " " . $fechaObj->format("d");
-    $productos[] = (int)$row['productos'];
+    $productosDB[$row['fecha']] = (int)$row['productos'];
 }
 
+$labels = [];
+$productos = [];
+
+// Generar últimos 7 días exactos
+for ($i = 6; $i >= 0; $i--) {
+    $fecha = date("Y-m-d", strtotime("-$i days"));
+    $fechaObj = new DateTime($fecha);
+    $dia_semana = $dias_es[(int)$fechaObj->format("w")];
+    $labels[] = $dia_semana . " " . $fechaObj->format("j"); // Día sin cero delante
+    $productos[] = $productosDB[$fecha] ?? 0; // Si no hay productos vendidos, 0
+}
+
+// Enviar JSON
 echo json_encode([
     "labels" => $labels,
     "productos" => $productos

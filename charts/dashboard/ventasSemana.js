@@ -42,7 +42,9 @@ fetch("../charts/dashboard/ventasSemana.php")
           yAxes: [{
             ticks: {
               beginAtZero: true,
-              callback: value => '$' + value
+              callback: value => '$' + value,
+              stepSize: 100,     // Intervalo entre etiquetas (ajústalo según tus datos)
+              maxTicksLimit: 5   // Máximo número de etiquetas visibles
             },
             gridLines: { color: "rgba(0, 0, 0, .125)" }
           }]
